@@ -21,7 +21,7 @@ use App\Http\Controllers\UserTokenController;
 //     return $request->user();
 // });
 
-Route::apiResource('products', ProductController::class)->middleware('auth:sanctum');
-Route::apiResource('categories', CategoryController::class)->middleware('auth:sanctum');
+Route::resource('products', ProductController::class)->middleware('auth:sanctum');
+Route::resource('categories', CategoryController::class)->middleware('auth:sanctum');
 
 Route::post('sanctum/token' , UserTokenController::class);
