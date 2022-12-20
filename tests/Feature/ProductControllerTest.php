@@ -4,6 +4,8 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use App\Models\Product;
+use App\Models\User;
+use Laravel\Sanctum\Sanctum;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ProductControllerTest extends TestCase
@@ -13,6 +15,9 @@ class ProductControllerTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+        Sanctum::actingAs(
+            User::factory()->create()
+        );
     }
 
     public function test_index()
@@ -30,7 +35,6 @@ class ProductControllerTest extends TestCase
     public function test_create_new_product()
     {
         // $this->withoutExceptionHandling(); // and read the stacktrace
-        
         $data = [
             'name' => 'Hola',
             'price' => 1000,
@@ -62,6 +66,7 @@ class ProductControllerTest extends TestCase
 
     public function test_show_product()
     {
+
         /** @var Product $product */
         $product = Product::factory()->create();
 
@@ -73,6 +78,7 @@ class ProductControllerTest extends TestCase
 
     public function test_delete_product()
     {
+
         /** @var Product $product */
         $product = Product::factory()->create();
 
