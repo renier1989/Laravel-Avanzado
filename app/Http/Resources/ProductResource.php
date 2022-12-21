@@ -12,8 +12,8 @@ class ProductResource extends JsonResource
 
         return [
             'id' => (int) $this->id,
-            'name' => (string) $this->name,
-            'price' => (float) $this->price
+            'nomnbre' => (string) $this->name,
+            'precio' => (float) $this->price
         ];
 
         // return parent::toArray($request);
