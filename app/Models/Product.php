@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\CanBeRated;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
-    use HasFactory , HasApiTokens;
+    use HasFactory , HasApiTokens , CanBeRated;
     
     protected $guarded = [];
 
